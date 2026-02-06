@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    table {
+      width: 100vw;
+      height: 100vh;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    td {
+      padding: 0;
+    }
+
+    /* Colunas */
+    .col-esq { width: 30%; }
+    .col-dir { width: 70%; position: relative; overflow: hidden; }
+
+    /* Linhas */
+    .linha-topo { height: 30%; }
+    .linha-base { height: 70%; }
+
+    /* Imagem topo esquerda */
+    .imagem {
+      background-image: url("liss.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Vídeo */
+    .video-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== CÉLULA 3 ===== */
+    .botoes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%;
+      height: 100%;
+      background: #0f0f0f;
+    }
+
+    .botao {
+      background: #111;
+      border: 1px solid #222;
+      cursor: pointer;
+      color: white;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+
+    .botao:hover {
+      background: #1a1a1a;
+    }
+
+    .botao p {
+      margin: 0;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .botao img {
+      width: 80%;
+      height: auto;
+      border-radius: 6px;
+      opacity: 0.9;
+    }
+
+    /* ===== CÉLULA 4 ===== */
+    .imagem-dinamica {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #textoExibido {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 15px;
+      max-width: 60%;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<table>
+  <!-- LINHA 1 -->
+  <tr class="linha-topo">
+    <td class="col-esq imagem"></td>
+
+    <td class="col-dir">
+      <div class="video-wrapper">
+        <video autoplay muted loop playsinline>
+          <source src="life is strange.mp4" type="video/mp4">
+        </video>
+      </div>
+    </td>
+  </tr>
+
+  <!-- LINHA 2 -->
+  <tr class="linha-base">
+    <!-- CÉLULA 3 -->
+    <td class="col-esq">
+      <div class="botoes">
+
+        <button class="botao"
+          onclick="trocarConteudo(
+            'https://i.pinimg.com/1200x/08/31/04/08310477513b325942fd418e0344359b.jpg',
+            'Life is Strange é um jogo narrativo onde você joga com Max Caulfield, uma estudante que descobre o poder de voltar no tempo.'
+          )">
+          <p>O que é Life is Strange?</p>
+          <img src="https://i.pinimg.com/1200x/05/94/26/059426825c012917e5f975f7b64a849f.jpg" alt="">
+        </button>
+
+        <button class="botao"
+          onclick="trocarConteudo(
+            'https://i.pinimg.com/1200x/dc/e6/7d/dce67d33ef6ff7b143a2bc107674e03c.jpg',
+            'A história conta sobre Max e sua amiga Chloe, que se reencontram depois de anos em Arcadia Bay, uma cidade que ocorre desastres por conta dos poderes de Max'
+          )">
+          <p>História</p>
+          <img src="https://i.pinimg.com/1200x/d9/4c/80/d94c80ae4dbfb52ca6a9e66378136ead.jpg" alt="">
+        </button>
+
+        <button class="botao"
+          onclick="trocarConteudo(
+            'https://i.pinimg.com/1200x/a4/d3/09/a4d30923a439561ed444f2b1a6d250b7.jpg',
+            'Life is strange é muito mais que uma franquia com inumeros jogos, cada jogo tem uma história, um peso, uma forma do jogador se indentificar com aquilo que está acontecendo no momento.'
+          )">
+          <p>Franquia</p>
+          <img src="https://i.pinimg.com/1200x/ea/2a/b9/ea2ab9098e8d7b239f686d798df1f203.jpg" alt="">
+        </button>
+
+        <button class="botao"
+  onclick="window.location.href='blaa.html'">
+
+  <p>Contate-nos</p>
+  <img src="thumb4.jpg" alt="">
+  
+
+</button>
+
+     
+
+      </div>
+    </td>
+
+    <!-- CÉLULA 4 -->
+    <td class="col-dir">
+      <img id="imagemExibida" src="https://i.pinimg.com/1200x/c4/8f/e9/c48fe9033ce418da1ffa6fb40761f9ca.jpg" class="imagem-dinamica">
+      <div id="textoExibido">
+        
+      </div>
+    </td>
+  </tr>
+</table>
+
+<script>
+  function trocarConteudo(imagem, texto) {
+    document.getElementById("imagemExibida").src = imagem;
+    document.getElementById("textoExibido").innerText = texto;
+  }
+  
+</script>
+
+</body>
+</html>
